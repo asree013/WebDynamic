@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,11 +8,12 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
+  @Input('media_query') mobileQueryMax : boolean | undefined;
   @Output() navtoggle = new EventEmitter();
   @Output() sayHi = new EventEmitter<string>();
 
   mailNoti = 16
-  noti = 21
+  noti = 15
 
   imgLogo = 'https://shanebart-cdn.azureedge.net/wp-content/uploads/2021/11/3h5gjh43gj5hhg43j-1-279x300.png';
 

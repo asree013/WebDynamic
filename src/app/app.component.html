@@ -1,9 +1,11 @@
-<mat-sidenav-container class="example-container" >
-    <mat-sidenav #sidenav mode="side" [opened]="mobileQueryMax.matches ? false:true">
-        <button mat-button>Click</button>
-        <button mat-button>Click</button>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav [mode]="mobileQueryMax.matches ? 'over':'side'" [opened]="mobileQueryMax.matches ? false:true">
+        <app-side-nav></app-side-nav>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-header (navtoggle)="sidenav.toggle()" (sayHi)="onsay($event)"></app-header>
+        <app-header [media_query]="mobileQueryMax.matches" (navtoggle)="sidenav.toggle()" (sayHi)="onsay($event)"></app-header>
+        <div class="content-wrapper">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

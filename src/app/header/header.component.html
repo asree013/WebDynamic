@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
     <button mat-icon-button (click)="clickSidenavToggle()"><mat-icon>menu</mat-icon></button>
-    <span>QaliqXApp</span>
+    <span *ngIf="!mobileQueryMax">QaliqXApp</span>
     <span class="flex-fill"></span>
     <div class="d-flex align-items-center">
       <button
@@ -30,7 +30,7 @@
     </div>
     <button mat-button [matMenuTriggerFor]="menu">
       <img
-        class="avatar rounded-circle bg-whith"
+        class="avatar rounded-circle bg-whith logo-head"
         src="{{ imgLogo }}"
         alt=""
       />
@@ -60,3 +60,4 @@
       </mat-menu>
   
 </mat-toolbar>
+
