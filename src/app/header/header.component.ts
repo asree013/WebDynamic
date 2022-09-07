@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   mailNoti = 16
   noti = 15
 
-  imgLogo = 'https://shanebart-cdn.azureedge.net/wp-content/uploads/2021/11/3h5gjh43gj5hhg43j-1-279x300.png';
+  imgLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/768px-Angular_full_color_logo.svg.png?20160527092314';
 
   constructor() { }
 

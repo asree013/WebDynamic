@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StockCreateComponent } from './stock/stock-create/stock-create.component';
 import { StockEditComponent } from './stock/stock-edit/stock-edit.component';
