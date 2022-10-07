@@ -1,63 +1,72 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="clickSidenavToggle()"><mat-icon>menu</mat-icon></button>
-    <span *ngIf="!mobileQueryMax">QaliqXApp</span>
-    <span class="flex-fill"></span>
-    <div class="d-flex align-items-center">
-      <button
-        mat-icon-button
-        aria-label="Example icon button with a filter list icon"
-      >
-        <mat-icon>search</mat-icon>
-      </button>
-      <div class="vl"></div>
-      <button
-        mat-icon-button
-        aria-label="Example icon button with a filter list icon"
-      >
-        <mat-icon [matBadge]="mailNoti" matBadgeColor="warn"
-          >mail_outline</mat-icon
-        >
-      </button>
-      <div class="vl"></div>
-      <button
-        mat-icon-button
-        aria-label="Example icon button with a filter list icon"
-      >
-        <mat-icon [matBadge]="noti" matBadgeColor="warn"
-          >notifications_none</mat-icon
-        >
-      </button>
-    </div>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <img
-        class="avatar rounded-circle bg-whith logo-head"
-        src="{{ imgLogo }}"
-        alt=""
-      />
-      <span class="ml-2 ">Admin I-Pon</span>
+  <button mat-icon-button (click)="clickSidenavToggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span *ngIf="!mobileQueryMax">ระบบผ่อนผันทหาร</span>
+  <span class="flex-fill"></span>
+  <div class="d-flex align-items-center">
+    <button
+      mat-icon-button
+      aria-label="Example icon button with a filter list icon"
+    >
+      <mat-icon>search</mat-icon>
     </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span (click)="SWARedial()">Redial</span>
-        </button>
-        <button mat-menu-item disabled>
-          <mat-icon>voicemail</mat-icon>
-          <span>Check voice mail</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>aspect_ratio</mat-icon>
-          <span (click)="SWAimg()">รูปภาพ</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>report_problem</mat-icon>
-          <span (click)="SWAWarn()">อย่ากด</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Logout</span>
-        </button>
-      </mat-menu>
-  
+    <div class="vl"></div>
+    <button
+      mat-icon-button
+      aria-label="Example icon button with a filter list icon"
+    >
+      <mat-icon [matBadge]="mailNoti" matBadgeColor="warn"
+        >mail_outline</mat-icon
+      >
+    </button>
+    <div class="vl"></div>
+    <button
+      mat-icon-button
+      aria-label="Example icon button with a filter list icon"
+    >
+      <mat-icon [matBadge]="noti" matBadgeColor="warn"
+        >notifications_none</mat-icon
+      ></button
+    >
+    <div class="vl"></div>
+    <button
+      mat-icon-button
+      aria-label="Example icon button with a filter list icon"
+    >
+      <mat-icon [matBadge]="report" matBadgeColor="accent" (click)="reportEven()"
+        >report_problem</mat-icon
+      >
+    </button>
+  </div>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <img
+      class="avatar rounded-circle bg-whith logo-head"
+      src="{{ imgLogo }}"
+      alt=""
+    />
+    <span class="ml-2">Admin I-Pon</span>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span (click)="SWARedial()">Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>aspect_ratio</mat-icon>
+      <span (click)="SWAimg()">รูปภาพ</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>report_problem</mat-icon>
+      <span (click)="SWAWarn()">อย่ากด</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>
-

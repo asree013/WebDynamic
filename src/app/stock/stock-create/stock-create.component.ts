@@ -1,6 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from './../../models/product.model';
+import { NetworkService } from './../../services/network.service';
 
 @Component({
   selector: 'app-stock-create',
@@ -12,7 +14,7 @@ export class StockCreateComponent implements OnInit {
   imagePreview: string | ArrayBuffer | null |undefined;
   file: File | undefined;
 
-  constructor() { }
+  constructor(private networkService: NetworkService, private location :Location) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +46,13 @@ export class StockCreateComponent implements OnInit {
     product.stock = value.stock;
     product.image = this.file
 
-    console.log(product);
+    this.networkService.addProduct(product).subscribe(
+      data => {
+        this.location.back()
+      },
+      error => {
+        alert(error.error.message)
+      }
+    )
   }
 }

@@ -58,7 +58,7 @@ td.mat-cell {
 }
 
 .table-hover tr:hover {
-    background-color: rgb(151, 147, 147);
+    background-color: rgb(168, 110, 110);
 }
 
 ::ng-deep th.mat-column-price>.mat-sort-header-container{

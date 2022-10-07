@@ -8,12 +8,13 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input('media_query') mobileQueryMax : boolean | undefined;
+  @Input('media_query') mobileQueryMax: boolean | undefined;
   @Output() navtoggle = new EventEmitter();
   @Output() sayHi = new EventEmitter<string>();
 
   mailNoti = 16
   noti = 15
+  report = 2
 
   imgLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/768px-Angular_full_color_logo.svg.png?20160527092314';
 
@@ -57,6 +58,41 @@ export class HeaderComponent implements OnInit {
         left top
         no-repeat
       `
+    })
+  }
+
+  reportEven() {
+    Swal.fire({
+      title: 'โปรดแจ้งปัญหาโยกสารส่ง Mail GitHub',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Look up',
+      showLoaderOnConfirm: true,
+      preConfirm: (login) => {
+        return fetch(`//api.github.com/users/${login}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText)
+            }
+            return response.json()
+          })
+          .catch(error => {
+            Swal.showValidationMessage(
+              `Request failed: ${error}`
+            )
+          })
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: `${result.value.login}'s avatar`,
+          imageUrl: result.value.avatar_url
+        })
+      }
     })
   }
 

@@ -1,0 +1,134 @@
+<mat-card>
+  <form #productForm="ngForm" (submit)="onSubmit(productForm)">
+    <mat-card-header>
+      <mat-card-title class="d-flex justify-content-between align-items-center">
+        <span>กรอกรายละเอียดสมาชิก</span>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="py-3 px-2">
+      <div class="row">
+        <div class="col-md-4" *ngIf="imagePreview">
+          <img class="img-fluid border w-100" [src]="imagePreview" alt="" />
+        </div>
+        <div class="col-md-8">
+          <button mat-stroked-button (click)="fileInput.click()" type="button">
+            <mat-icon>photo</mat-icon>
+            <span>รูปชุดนักศึกษาเรียบร้อย</span>
+          </button>
+          <input
+            (change)="onPrevieImage($event)"
+            #fileInput
+            type="file"
+            accept="image/*"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ชื่อ</mat-label>
+            <input ngModel name="firstName" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>นามสกุล</mat-label>
+            <input ngModel name="lastName" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>รหัสนักศึกศา</mat-label>
+            <input ngModel name="idStudent" matInput type="number" required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>บัตรประชาชน</mat-label>
+            <input ngModel name="idCard" matInput type="number" required />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>เบอร์โทรนักศึกษา</mat-label>
+            <input ngModel name="tellNumber" matInput type="number" required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ชื่อบิดา(ไม่ต้องใส่นามสกุล)</mat-label>
+            <input ngModel name="nameDad" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ชื่อมารดา(ไม่ต้องใส่นามสกุล)</mat-label>
+            <input ngModel name="nameMon" matInput required />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>บ้านเลขที่</mat-label>
+            <input ngModel name="homeNumber" matInput required />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ซอย</mat-label>
+            <input ngModel name="soi" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ถนน</mat-label>
+            <input ngModel name="road" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>ตำบล</mat-label>
+            <input ngModel name="subDistrict" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>อำเภอ</mat-label>
+            <input ngModel name="district" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>จังหวัด</mat-label>
+            <input ngModel name="province" matInput required />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>รหัสไปรษณีย์</mat-label>
+            <input ngModel name="zipCode" matInput type="number" required />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-header>
+      <mat-card-title class="d-flex justify-content-between align-items-center">
+        <h5>โปรดเช็คความถูกต้องก่อนทำการสมัคร</h5>
+        <button mat-raised-button color="primary" type="submit">
+          สมัครสมาชิก
+        </button>
+      </mat-card-title>
+    </mat-card-header>
+  </form>
+</mat-card>
